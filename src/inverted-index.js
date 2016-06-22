@@ -1,7 +1,7 @@
 function Index() {
-    // 'use strict';
     this.index = {};
 
+    //load the JSON file
     this.loadData = function(filePath) {
         var request = new XMLHttpRequest();
         request.open('GET', filePath, false);
@@ -10,26 +10,27 @@ function Index() {
             if (request.responseText.trim().length === 0) {
                 throw new Error('the file is empty');
             }
+
             try {
                 return JSON.parse(request.responseText);
             } catch (e) {
                 throw new Error('invalid json file');
             }
         }
+
         throw new Error('unable to open file');
     };
 
     //reading the json file
     this.createIndex = function(books) {
-
         var newArray = [];
         var uniqueWords = [];
         self = this;
 
-        //removing punctuation marks, splitting and concatenating the strings
+        //removing punctuation marks, splitting and concatenating the strings 
         for (i = 0; i < books.length; i++) {
             content = (books[i].title + ' ' + books[i].text)
-                .replace(/[.,:]/g, '')
+                .replace(/\W/g, ' ')
                 .toLowerCase()
                 .split(' ');
             newArray.push(content);
@@ -40,6 +41,7 @@ function Index() {
             var words = newArray[i].filter(function(word, key) {
                 return newArray[i].indexOf(word) == key;
             });
+
             uniqueWords.push(words);
         }
 
@@ -63,7 +65,6 @@ function Index() {
 
     //searching for specific terms
     this.searchIndex = function(terms) {
-
         var self = this,
             results = [];
 
@@ -74,18 +75,14 @@ function Index() {
                 .split(' ');
         }
 
-
         terms.forEach(function(word) {
-            console.log(word);
             if (self.index.hasOwnProperty(word)) {
-
                 results.push(self.index[word]);
             } else {
-                results.push("Not found");
+                results.push('Not found');
             }
         });
-        // console.log(result);
-        // results.push(result);
+
         return results;
     };
 }
