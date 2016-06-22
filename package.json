@@ -1,0 +1,24 @@
+{
+  "name": "inverted-index",
+  "version": "0.0.1",
+  "description": "Returns an inverted index",
+  "main": "inverted-index.js",
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "node": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-ioraelosi/inverted-index.git"
+  },
+  "author": "Jacky Kimani",
+  "license": "UNLICENCED",
+  "bugs": {
+    "url": "https://github.com/andela-ioraelosi/inverted-index/issues"
+  },
+  "homepage": "https://github.com/andela-ioraelosi/inverted-index#readme"
+}
