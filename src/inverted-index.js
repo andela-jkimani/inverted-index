@@ -30,8 +30,9 @@ function Index() {
         //removing punctuation marks, splitting and concatenating the strings 
         for (i = 0; i < books.length; i++) {
             content = (books[i].title + ' ' + books[i].text)
-                .replace(/\W/g, ' ')
+                .replace(/\W+/g, ' ')
                 .toLowerCase()
+                .trim()
                 .split(' ');
             newArray.push(content);
         }
