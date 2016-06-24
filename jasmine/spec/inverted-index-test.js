@@ -59,7 +59,7 @@ describe("Inverted Index", function() {
     });
 
     describe('Search Index', function() {
-        it("should return an array when index is searched", function() {
+        it("should return an array", function() {
             expect(myIndex.searchIndex('wizard')).toEqual([[1]]);
             expect(myIndex.searchIndex('world')).toEqual([[0]]);
             expect(myIndex.searchIndex('hello')).toEqual(['Not found']);

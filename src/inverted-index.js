@@ -5,7 +5,7 @@ function Index() {
   this.loadData = function(filePath) {
     var request = new XMLHttpRequest();
     request.open('GET', filePath, false);
-    request.send(null);
+    request.send();
     if (request.status === 200) {
       if (request.responseText.trim().length === 0) {
         throw new Error('the file is empty');
@@ -16,9 +16,9 @@ function Index() {
       } catch (e) {
         throw new Error('invalid json file');
       }
+    } else {
+      throw new Error('unable to open file');
     }
-
-    throw new Error('unable to open file');
   };
 
   //reading the json file
@@ -26,8 +26,9 @@ function Index() {
     var uniqueWords = [];
     self = this;
 
+    var bookLength = books.length;
     //removing punctuation marks, splitting and concatenating the strings 
-    for (i = 0; i < books.length; i++) {
+    for (i = 0; i < bookLength; i++) {
       var content = (books[i].title + ' ' + books[i].text)
         .replace(/\W+/g, ' ')
         .toLowerCase()
@@ -41,15 +42,15 @@ function Index() {
       uniqueWords.push(words);
     }
 
+    var uniqueWordsLength = uniqueWords.length;
     //creating index
-    for (i = 0; i < uniqueWords.length; i++) {
+    for (i = 0; i < uniqueWordsLength; i++) {
       for (var j = 0; j < uniqueWords[i].length; j++) {
         if (!(uniqueWords[i][j] in self.index)) {
           self.index[uniqueWords[i][j]] = [i];
         } else {
           self.index[uniqueWords[i][j]].push(i);
         }
-
       }
     }
   };
