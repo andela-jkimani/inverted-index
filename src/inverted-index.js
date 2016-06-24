@@ -47,7 +47,7 @@ function Index() {
 
     var uniqueWordsLength = uniqueWords.length;
     //creating index
-    for (i = 0; i < uniqueWords.length; i++) {
+    for (i = 0; i < uniqueWordsLength; i++) {
       for (var j = 0; j < uniqueWords[i].length; j++) {
         if (!(uniqueWords[i][j] in self.index)) {
           self.index[uniqueWords[i][j]] = [i];
