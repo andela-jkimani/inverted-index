@@ -23,12 +23,14 @@ function Index() {
 
   //reading the json file
   this.createIndex = function(books) {
+    var newArray = [];
     var uniqueWords = [];
     self = this;
 
-    var bookLength = books.length;
-    //removing punctuation marks, splitting and concatenating the strings 
-    for (i = 0; i < bookLength; i++) {
+    var booksLength = books.length;
+    for (i = 0; i < booksLength; i++) {
+
+      //removing all non-word characters, splitting and concatenating the strings 
       var content = (books[i].title + ' ' + books[i].text)
         .replace(/\W+/g, ' ')
         .toLowerCase()
@@ -39,18 +41,20 @@ function Index() {
       var words = content.filter(function(word, key) {
         return content.indexOf(word) == key;
       });
+
       uniqueWords.push(words);
     }
 
     var uniqueWordsLength = uniqueWords.length;
     //creating index
-    for (i = 0; i < uniqueWordsLength; i++) {
+    for (i = 0; i < uniqueWords.length; i++) {
       for (var j = 0; j < uniqueWords[i].length; j++) {
         if (!(uniqueWords[i][j] in self.index)) {
           self.index[uniqueWords[i][j]] = [i];
         } else {
           self.index[uniqueWords[i][j]].push(i);
         }
+
       }
     }
   };
