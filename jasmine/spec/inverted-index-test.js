@@ -58,7 +58,9 @@ describe('Inverted Index', function() {
         [0]
       ]);
 
-      expect(myIndex.searchIndex('hello')).toEqual(['Not found']);
+      expect(myIndex.searchIndex('hello')).toEqual([
+        [-1]
+      ]);
     });
 
     it("should ensure index returns the correct results when searched", function() {
@@ -71,7 +73,9 @@ describe('Inverted Index', function() {
         [0, 1]
       ]);
 
-      expect(myIndex.searchIndex('jacky')).toEqual(['Not found']);
+      expect(myIndex.searchIndex('jacky')).toEqual([
+        [-1]
+      ]);
       expect(myIndex.searchIndex('man')).toEqual([
         [1]
       ]);
@@ -91,7 +95,8 @@ describe('Inverted Index', function() {
       ]);
 
       expect(myIndex.searchIndex(['alice', 'jacky'])).toEqual([
-        [0, 1], 'Not found'
+        [0, 1],
+        [-1]
       ]);
     });
   });
