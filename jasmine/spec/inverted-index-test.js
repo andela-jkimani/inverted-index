@@ -1,4 +1,4 @@
-describe("Inverted Index", function() {
+describe('Inverted Index', function() {
   var books,
     index,
     myIndex = new Index();
