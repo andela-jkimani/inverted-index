@@ -28,6 +28,13 @@ function Index() {
     self = this;
 
     var booksLength = books.length;
+
+    function filter(content) {
+      return content.filter(function(word, key) {
+        return content.indexOf(word) == key;
+      });
+    }
+
     for (i = 0; i < booksLength; i++) {
 
       //removing all non-word characters, splitting and concatenating the strings 
@@ -38,9 +45,7 @@ function Index() {
         .split(' ');
 
       //getting unique words
-      var words = content.filter(function(word, key) {
-        return content.indexOf(word) == key;
-      });
+      var words = filter(content);
 
       uniqueWords.push(words);
     }
@@ -80,7 +85,7 @@ function Index() {
       if (self.index.hasOwnProperty(word)) {
         results.push(self.index[word]);
       } else {
-        results.push('Not found');
+        results.push([-1]);
       }
     });
 
