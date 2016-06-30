@@ -2,23 +2,18 @@ function Index() {
   this.index = {};
 
   //load the JSON file
-  this.loadData = function(filePath) {
+  this.loadData = function(filePath, callback) {
     var request = new XMLHttpRequest();
-    request.open('GET', filePath, false);
-    request.send();
-    if (request.status === 200) {
-      if (request.responseText.trim().length === 0) {
-        throw new Error('the file is empty');
-      }
+    request.open('GET', filePath, true);
 
-      try {
-        return JSON.parse(request.responseText);
-      } catch (e) {
-        throw new Error('invalid json file');
+    request.onreadystatechange = function() {
+      if (request.readyState === 4 && request.status === 200) {
+        var response = request.responseText;
+        callback(JSON.parse(response));
       }
-    } else {
-      throw new Error('unable to open file');
-    }
+    };
+
+    request.send(null);
   };
 
   //reading the json file
@@ -50,6 +45,7 @@ function Index() {
     }
 
     var uniqueWordsLength = uniqueWords.length;
+
     //creating index
     for (i = 0; i < uniqueWordsLength; i++) {
       for (var j = 0; j < uniqueWords[i].length; j++) {
