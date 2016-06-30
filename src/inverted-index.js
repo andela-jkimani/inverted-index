@@ -23,7 +23,6 @@ function Index() {
 
   //reading the json file
   this.createIndex = function(books) {
-    var newArray = [];
     var uniqueWords = [];
     self = this;
 
@@ -31,7 +30,7 @@ function Index() {
 
     function filter(content) {
       return content.filter(function(word, key) {
-        return content.indexOf(word) == key;
+        return content.indexOf(word) === key;
       });
     }
 
