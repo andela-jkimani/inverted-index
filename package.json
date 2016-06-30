@@ -4,8 +4,7 @@
   "description": "Returns an inverted index",
   "main": "inverted-index.js",
   "dependencies": {
-    "jquery": "^3.0.0",
-    "node": "^0.0.0"
+    "jsmin": "^1.0.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -13,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andela-ioraelosi/inverted-index.git"
+    "url": "git+https://github.com/andela-jkimani/inverted-index.git"
   },
   "author": "Jacky Kimani",
   "license": "UNLICENCED",
   "bugs": {
-    "url": "https://github.com/andela-ioraelosi/inverted-index/issues"
+    "url": "https://github.com/andela-jkimani/inverted-index/issues"
   },
-  "homepage": "https://github.com/andela-ioraelosi/inverted-index#readme"
+  "homepage": "https://github.com/andela-jkimani/inverted-index/tree/master"
 }
