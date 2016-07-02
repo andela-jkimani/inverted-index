@@ -49,7 +49,7 @@ describe('Inverted Index', function() {
   });
 
   describe('Search Index', function() {
-    it("should return an array", function() {
+    it('should return an array', function() {
       expect(myIndex.searchIndex('wizard')).toEqual([
         [1]
       ]);
@@ -63,7 +63,7 @@ describe('Inverted Index', function() {
       ]);
     });
 
-    it("should ensure index returns the correct results when searched", function() {
+    it('should ensure index returns the correct results when searched', function() {
       expect(myIndex.searchIndex(['alice', 'a'])).toEqual([
         [0, 1],
         [0, 1]
@@ -89,7 +89,7 @@ describe('Inverted Index', function() {
       ]);
     });
 
-    it("should ensure searchIndex can handle an array of search terms", function() {
+    it('should ensure searchIndex can handle an array of search terms', function() {
       expect(myIndex.searchIndex(['alice'])).toEqual([
         [0, 1]
       ]);
